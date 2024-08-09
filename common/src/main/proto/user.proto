@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.mm.comm";
+option java_outer_classname = "UserProto";
+
+service UserService {
+    rpc GetUserInformation (UserRequest) returns (UserInformation);
+}
+
+message UserRequest {
+    int64 userId = 1;
+}
+
+message UserInformation {
+    int64 userId = 1;
+    string name = 2;
+    string email = 3;
+}

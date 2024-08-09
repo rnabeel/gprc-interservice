@@ -1,0 +1,22 @@
+server:
+  port: 8803
+
+spring:
+  application:
+    name: NOTIFICATION-SERVICE
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+Mail:
+  UserName: testmfsys@gmail.com
+  UserPassword: hphhvugevvtjqkya
+twilio:
+  account_sid:  ${TWILIO_SID}
+  auth_token:  ${TWILIO_AUTH_TOKEN}
+  from_number:  ${TWILIO_NUMBER}
