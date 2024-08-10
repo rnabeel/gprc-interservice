@@ -6,34 +6,20 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.2</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mm</groupId>
-	<artifactId>grpc</artifactId>
+	<artifactId>grpc-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>grpc</name>
+	<name>grpc-service</name>
 	<description>Getting started with gRPC</description>
 	<properties>
 		<java.version>17</java.version>
-		<grpc.java.version>1.58.0</grpc.java.version>
-		<tomcat.annotations.version>6.0.53</tomcat.annotations.version>
-		<protoc.version>3.25.1</protoc.version>
-		<protobuf.maven.plugin.version>0.6.1</protobuf.maven.plugin.version>
-		<os.maven.plugin.version>1.7.1</os.maven.plugin.version>
+		<grpc.version>1.63.0</grpc.version>
 		<grpc.spring.version>3.1.0.RELEASE</grpc.spring.version>
-		<protobuf.java.util.version>3.25.4</protobuf.java.util.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>net.devh</groupId>
-			<artifactId>grpc-client-spring-boot-starter</artifactId>
-			<version>${grpc.spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.devh</groupId>
-			<artifactId>grpc-server-spring-boot-starter</artifactId>
-			<version>${grpc.spring.version}</version>
-		</dependency>
+		<!-- Spring Boot Starter Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -42,15 +28,49 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
+		<!-- MySQL Connector dependency -->
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- gRPC Dependencies -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-netty-shaded</artifactId>
+			<version>${grpc.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-protobuf</artifactId>
+			<version>${grpc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-stub</artifactId>
+			<version>${grpc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-services</artifactId>
+			<version>${grpc.version}</version>
+		</dependency>
+
+		<!-- gRPC Spring Boot Starter -->
+		<dependency>
+			<groupId>net.devh</groupId>
+			<artifactId>grpc-server-spring-boot-starter</artifactId>
+			<version>${grpc.spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.devh</groupId>
+			<artifactId>grpc-client-spring-boot-starter</artifactId>
+			<version>${grpc.spring.version}</version>
+		</dependency>
+
+		<!-- Custom common module dependency -->
 		<dependency>
 			<groupId>com.mm</groupId>
 			<artifactId>common</artifactId>
@@ -58,4 +78,13 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<finalName>grpc-service</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

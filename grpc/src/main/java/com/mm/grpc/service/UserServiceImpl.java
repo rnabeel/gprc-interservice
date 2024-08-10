@@ -18,7 +18,7 @@ public class UserServiceImpl  extends UserServiceGrpc.UserServiceImplBase {
 
     @Override
     public void getUserInformation(UserRequest request, StreamObserver<UserInformation> responseObserver) {
-
+        System.out.println("-------------------- Just Got a hit on Service A ------------------");
         User user = userRepository.findById(request.getUserId()).orElseThrow(() -> new RuntimeException("may day"));
         UserInformation userInformation = UserInformation.newBuilder()
                         .setUserId(user.getId())

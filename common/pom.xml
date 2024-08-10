@@ -21,11 +21,7 @@
         <protobuf.java.util.version>3.25.4</protobuf.java.util.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>net.devh</groupId>
-            <artifactId>grpc-server-spring-boot-starter</artifactId>
-            <version>${grpc.spring.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>

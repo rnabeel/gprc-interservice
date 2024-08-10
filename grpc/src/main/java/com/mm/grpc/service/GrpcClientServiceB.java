@@ -14,7 +14,8 @@ public class GrpcClientServiceB {
     private UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub;
 
     public UserInformation getUserInformation(String userId) {
-        UserRequest request = UserRequest.newBuilder().setUserId(Long.parseLong(userId)).build();
-        return userServiceBlockingStub.getUserInformation(request);
+        System.out.println("----------- Service call beigns from here ------------");
+            UserRequest request = UserRequest.newBuilder().setUserId(Long.parseLong(userId)).build();
+            return userServiceBlockingStub.getUserInformation(request);
+        }
     }
-}
