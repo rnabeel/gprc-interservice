@@ -13,11 +13,8 @@ public class GrpcClientServiceA {
     private UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub;
 
     public UserInformation getUserInformation(Long userId) {
-        System.out.println("got a hit");
-        System.out.println();
-        for(int i = 0; i<5_000_000; i++) {
-           UserRequest.newBuilder().setUserId(userId).build();
-        }
+
+        System.out.println(System.currentTimeMillis());
         UserRequest request = UserRequest.newBuilder().setUserId(userId).build();
         return userServiceBlockingStub.getUserInformation(request);
     }

@@ -10,7 +10,7 @@ import net.devh.boot.grpc.server.service.GrpcService;
 public class UserServiceBImpl extends UserServiceGrpc.UserServiceImplBase{
         @Override
         public void getUserInformation(UserRequest request, StreamObserver<UserInformation> responseObserver) {
-            System.out.println("server b got a hit");
+//            System.out.println("server b got a hit");
             UserInformation userInformation = UserInformation.newBuilder()
                     .setUserId(request.getUserId())
                     .setName("Name from B")
